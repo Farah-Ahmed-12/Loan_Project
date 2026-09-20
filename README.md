@@ -193,49 +193,88 @@ default               default_status
 
 After completing the data preparation and cleaning process in SQL Server, the cleaned dataset was analyzed in Power BI to identify patterns and differences associated with loan default status.
 
-DAX measures and calculated columns were created to support KPI calculations, default-rate analysis, and applicant segmentation.
+### DAX Measures & Calculated Columns
+
+DAX was used to create KPIs, default-rate calculations, and applicant segmentation fields.
+
+#### Key Measures
+
+* `Total Records`
+* `Defaulted Records`
+* `No Defaulted Records`
+* `Default Rate`
+* `Average Income`
+* `Average DTI`
+* `Average Credit Debt`
+* `Average Other Debt`
+
+#### Calculated Columns
+
+* `Default Category`
+* `Age Group`
+* `Employment Group`
+* `Address Years Group`
+* `DTI Group`
+
+These calculations were used across the dashboard to support consistent risk analysis and comparisons between default categories.
+
+---
 
 ### 1. Executive Overview
 
-The first dashboard page provides a high-level overview of the loan portfolio and default status.
+The first dashboard page provides a high-level overview of the dataset and loan default status.
 
-The analysis includes key KPIs and visualizations covering:
+**KPIs:**
 
-* Total records
-* Defaulted records
-* No-default records
-* Default rate
-* Average income
-* Average debt-to-income ratio
-* Default distribution
-* Default rate across key applicant characteristics
+* Total Records
+* Defaulted Records
+* No Defaulted Records
+* Default Rate
+* Average Income
+* Average DTI
 
-This page provides a quick summary of the overall credit risk profile.
+**Visualizations:**
+
+* Default Distribution
+* Default Rate by Education Level
+* Average DTI by Default Category
+* Default Rate by Age Group
+
+This page provides a quick overview of the overall credit risk profile.
+
+**Dashboard Screenshot:**
+
+<img width="1920" height="961" alt="Screenshot (2064)" src="https://github.com/user-attachments/assets/4c8e1a67-05e2-44fa-b557-7ef149b127c8" />
+
+---
 
 ### 2. Credit Risk Analysis
 
-The second page focuses on the relationship between applicants' financial characteristics and loan default status.
+The second dashboard page focuses on financial characteristics associated with loan default status.
 
 #### Income vs Debt-to-Income Ratio
 
-A scatter chart was used to analyze the relationship between annual income and debt-to-income ratio, with default status used to distinguish the records.
+A scatter chart was used to examine the relationship between annual income and debt-to-income ratio.
 
 * X-Axis → `annual_income`
 * Y-Axis → `debt_income_ratio`
 * Legend → `Default Category`
 
-This visualization helps identify patterns in the distribution of income and debt burden across default categories.
+#### Default Rate by DTI Group
+
+Default rate was analyzed across different debt-to-income ratio groups.
+
+* X-Axis → `DTI Group`
+* Y-Axis → `Default Rate`
+
+This visualization allows default rates to be compared across different levels of debt burden.
 
 #### Credit Debt vs Other Debt
 
-Average credit debt and average other debt were compared across default categories.
+Average credit debt and average other debt were compared across default categories using a clustered column chart.
 
-The analysis uses:
-
-* `Average Credit Debt`
-* `Average Other Debt`
-
-A clustered column chart was used to compare the two debt components between applicants with and without default status.
+* X-Axis → `Default Category`
+* Values → `Average Credit Debt`, `Average Other Debt`
 
 #### Income by Default Category
 
@@ -244,34 +283,51 @@ Average annual income was compared between default categories using a column cha
 * X-Axis → `Default Category`
 * Y-Axis → `Average Income`
 
-This provides a direct comparison of income levels across the two default groups.
+**Dashboard Screenshot:**
+
+<img width="1913" height="965" alt="Screenshot (2063)" src="https://github.com/user-attachments/assets/7dd527cd-fb33-45c5-ad07-69727488d6e4" />
+
+
+---
 
 ### 3. Applicant Risk Profile
 
-The third page examines default rates across applicant characteristics, with a focus on employment and residential stability.
+The third dashboard page examines default rates across applicant characteristics, with a focus on employment and residential stability.
 
 #### Employment Stability
 
-Default rate was analyzed across employment-duration groups to examine how default rates vary by years of employment.
+Default rate was analyzed across employment-duration groups.
 
-The `Employment Group` calculated column was used to segment applicants into employment-duration categories.
+* X-Axis → `Employment Group`
+* Y-Axis → `Default Rate`
 
 #### Address Stability
 
-Default rate was also analyzed across groups based on the number of years applicants had lived at their current address.
+Default rate was analyzed across groups based on the number of years applicants had lived at their current address.
 
-The `Address Years Group` calculated column was used to segment applicants according to residential stability.
+* X-Axis → `Address Years Group`
+* Y-Axis → `Default Rate`
 
 #### Applicant Analysis Table
 
 A summary table was included to provide a detailed view of applicant characteristics and their associated default information.
 
-The table complements the visual analysis by allowing individual records and their attributes to be reviewed alongside the dashboard's aggregated risk analysis.
+The table complements the visual analysis by providing record-level details alongside the aggregated risk analysis.
+
+**Dashboard Screenshot:**
+
+<img width="1913" height="969" alt="Screenshot (2062)" src="https://github.com/user-attachments/assets/0ac3fe09-2ed0-464b-842a-7d031103cb36" />
+
+
+---
 
 ### Key Analytical Focus
 
 The Power BI analysis focuses on identifying **patterns and associations** between financial and applicant characteristics and loan default status.
 
-The analysis does not imply that any individual variable directly causes loan default.
+The dashboard combines financial analysis, applicant segmentation, and default-rate comparisons to provide an interactive view of credit risk patterns.
+
+The analysis identifies associations in the data and does not imply that any individual variable directly causes loan default.
+
 
 
