@@ -186,4 +186,92 @@ education_level       education_level
 default               default_status    
 
 
+---
+
+
+## Data Analysis & Power BI Dashboard
+
+After completing the data preparation and cleaning process in SQL Server, the cleaned dataset was analyzed in Power BI to identify patterns and differences associated with loan default status.
+
+DAX measures and calculated columns were created to support KPI calculations, default-rate analysis, and applicant segmentation.
+
+### 1. Executive Overview
+
+The first dashboard page provides a high-level overview of the loan portfolio and default status.
+
+The analysis includes key KPIs and visualizations covering:
+
+* Total records
+* Defaulted records
+* No-default records
+* Default rate
+* Average income
+* Average debt-to-income ratio
+* Default distribution
+* Default rate across key applicant characteristics
+
+This page provides a quick summary of the overall credit risk profile.
+
+### 2. Credit Risk Analysis
+
+The second page focuses on the relationship between applicants' financial characteristics and loan default status.
+
+#### Income vs Debt-to-Income Ratio
+
+A scatter chart was used to analyze the relationship between annual income and debt-to-income ratio, with default status used to distinguish the records.
+
+* X-Axis → `annual_income`
+* Y-Axis → `debt_income_ratio`
+* Legend → `Default Category`
+
+This visualization helps identify patterns in the distribution of income and debt burden across default categories.
+
+#### Credit Debt vs Other Debt
+
+Average credit debt and average other debt were compared across default categories.
+
+The analysis uses:
+
+* `Average Credit Debt`
+* `Average Other Debt`
+
+A clustered column chart was used to compare the two debt components between applicants with and without default status.
+
+#### Income by Default Category
+
+Average annual income was compared between default categories using a column chart.
+
+* X-Axis → `Default Category`
+* Y-Axis → `Average Income`
+
+This provides a direct comparison of income levels across the two default groups.
+
+### 3. Applicant Risk Profile
+
+The third page examines default rates across applicant characteristics, with a focus on employment and residential stability.
+
+#### Employment Stability
+
+Default rate was analyzed across employment-duration groups to examine how default rates vary by years of employment.
+
+The `Employment Group` calculated column was used to segment applicants into employment-duration categories.
+
+#### Address Stability
+
+Default rate was also analyzed across groups based on the number of years applicants had lived at their current address.
+
+The `Address Years Group` calculated column was used to segment applicants according to residential stability.
+
+#### Applicant Analysis Table
+
+A summary table was included to provide a detailed view of applicant characteristics and their associated default information.
+
+The table complements the visual analysis by allowing individual records and their attributes to be reviewed alongside the dashboard's aggregated risk analysis.
+
+### Key Analytical Focus
+
+The Power BI analysis focuses on identifying **patterns and associations** between financial and applicant characteristics and loan default status.
+
+The analysis does not imply that any individual variable directly causes loan default.
+
 
